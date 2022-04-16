@@ -1,0 +1,79 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Carbon",
+        "repositoryURL": "https://github.com/ra1028/Carbon",
+        "state": {
+          "branch": null,
+          "revision": "56e5f29fc42cad4b0d27b97dccd4065297267ac5",
+          "version": null
+        }
+      },
+      {
+        "package": "CombineOperators",
+        "repositoryURL": "https://github.com/DenisOvchar457/CombineOperators.git",
+        "state": {
+          "branch": "one_target",
+          "revision": "b16754bbf57134c22308ad32f16e573dd3b473cf",
+          "version": null
+        }
+      },
+      {
+        "package": "DifferenceKit",
+        "repositoryURL": "https://github.com/ra1028/DifferenceKit.git",
+        "state": {
+          "branch": null,
+          "revision": "14c66681e12a38b81045f44c6c29724a0d4b0e72",
+          "version": "1.1.5"
+        }
+      },
+      {
+        "package": "InputMask",
+        "repositoryURL": "https://github.com/RedMadRobot/input-mask-ios",
+        "state": {
+          "branch": null,
+          "revision": "40e33ad9fb8cef671f8c4f667f6c0a0043abcbb3",
+          "version": "6.1.0"
+        }
+      },
+      {
+        "package": "Nuke",
+        "repositoryURL": "https://github.com/kean/Nuke",
+        "state": {
+          "branch": null,
+          "revision": "78fa963b8491fc520791d8c2a509f1b8593d8aae",
+          "version": "10.7.1"
+        }
+      },
+      {
+        "package": "SimpleCoders",
+        "repositoryURL": "https://github.com/dankinsoid/SimpleCoders.git",
+        "state": {
+          "branch": null,
+          "revision": "851020895e17b77180234a465c2d8b8050f11ca0",
+          "version": "1.2.0"
+        }
+      },
+      {
+        "package": "VDCodable",
+        "repositoryURL": "https://github.com/dankinsoid/VDCodable.git",
+        "state": {
+          "branch": null,
+          "revision": "9fb2c81036253593b5864557325e014fa2177d62",
+          "version": "2.10.0"
+        }
+      },
+      {
+        "package": "VDKit",
+        "repositoryURL": "https://github.com/dankinsoid/VDKit.git",
+        "state": {
+          "branch": null,
+          "revision": "a33938cfed7addc3d8944be0cfe4b0c3980bdb42",
+          "version": "1.188.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
