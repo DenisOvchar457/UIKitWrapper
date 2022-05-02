@@ -12,10 +12,10 @@
       },
       {
         "package": "CombineOperators",
-        "repositoryURL": "https://github.com/DenisOvchar457/CombineOperators.git",
+        "repositoryURL": "https://github.com/HyperfocusDisordered/CombineOperators.git",
         "state": {
-          "branch": "one_target",
-          "revision": "b16754bbf57134c22308ad32f16e573dd3b473cf",
+          "branch": null,
+          "revision": "c22bc318bfb1a7a186e4de69429389b4ae55d048",
           "version": null
         }
       },
