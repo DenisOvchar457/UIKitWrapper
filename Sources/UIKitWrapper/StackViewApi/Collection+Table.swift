@@ -34,6 +34,17 @@ open class TableView: UIView {
 //		
 //	}
 	
+//	public convenience init<O: Publisher>(
+//		_ observableList: O,
+//		tableView: UITableView = UITableView(),
+//		adapter: UITableViewAdapter = UITableViewAdapter(),
+//		insets: UIEdgeInsets = .zero,
+//		@ArrayBuilder <StackItem> cells: @escaping () -> [ReusableCell]
+//	) where O.Output == [EquatableIdentifiable] {
+//		
+//		
+//	}
+	
 	public convenience init<O: Publisher>(
 		_ observableList: O,
 		tableView: UITableView = UITableView(),

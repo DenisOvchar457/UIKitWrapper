@@ -48,6 +48,8 @@ public extension UIView {
         shapeLayer.path = path
         self.layer.addSublayer(shapeLayer)
     }
+	
+//	func path()
 }
 
 //extension CGPoint {

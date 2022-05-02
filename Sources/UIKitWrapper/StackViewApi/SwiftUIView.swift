@@ -8,8 +8,10 @@
 import UIKit
 import SwiftUI
 
-private let previewDeviceName = //"iPhone 12"//
+public var previewDeviceName: String = //"iPhone 12"//
 	"iPad 2 (com.apple.CoreSimulator.SimDeviceType.iPad-2)"
+public var previewSize: CGSize = CGSize()
+
 
 @available(iOS 13.0, *)
 public struct ContentView : View {
@@ -35,15 +37,31 @@ public struct UIWrapper: UIViewRepresentable {
 public struct SwiftUIView: View {
     let view: UIView
     public var body: some View {
-        ContentView( view: view)
+        ContentView(view: view)
         .previewDevice(PreviewDevice(rawValue: previewDeviceName))
         .previewDisplayName(previewDeviceName)
-        .previewLayout(.fixed(width: 1366, height: 1024))
-    }
+				.previewLayout(.fixed(width: previewSize.width, height: previewSize.height))
+//				.landscape()
+		}
 
     public init(_ view: UIView) {
         self.view = view
     }
+}
+
+struct LandscapeModifier: ViewModifier {
+		func body(content: Content) -> some View {
+				content
+						.previewLayout(.fixed(width: 812, height: 375))
+						.environment(\.horizontalSizeClass, .compact)
+						.environment(\.verticalSizeClass, .compact)
+		}
+}
+
+extension View {
+		func landscape() -> some View {
+				self.modifier(LandscapeModifier())
+		}
 }
 
 public extension UIView {

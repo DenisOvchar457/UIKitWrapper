@@ -11,7 +11,7 @@ public class SelectorHandler<In>: NSObject {
 
     let block: (In) -> Void
 
-    @discardableResult init (referenceHolder: AnyObject, block: @escaping (In) -> Void) {
+    @discardableResult public init (referenceHolder: AnyObject, block: @escaping (In) -> Void) {
         self.block = block
         super.init()
 
@@ -20,7 +20,7 @@ public class SelectorHandler<In>: NSObject {
         objc_setAssociatedObject(referenceHolder, &kSomeKey, self, .OBJC_ASSOCIATION_RETAIN)
     }
 
-    @objc func handle(sender: Any) {
+    @objc public func handle(sender: Any) {
         (sender as? In).map(block)
     }
 
@@ -30,7 +30,7 @@ public class SelectorHandler<In>: NSObject {
 }
 
 public extension UIView {
-	public  func onTap(_ action: @escaping () -> Void) -> Self {
+	public func onTap(_ action: @escaping () -> Void) -> Self {
         let handler = SelectorHandler<UITapGestureRecognizer>(referenceHolder: self) { _ in action() }
         let gestureRcognizer = UITapGestureRecognizer(target: handler, action: #selector(handler.handle(sender:)))
         isUserInteractionEnabled = true

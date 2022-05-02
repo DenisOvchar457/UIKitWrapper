@@ -14,6 +14,10 @@ import Carbon
 import VDKit
 //
 //
+
+
+//extension Equatable: Publisher { }
+
 public func Label<O: Publisher>(_ observableText: O) -> UILabel where O.Output == String, O.Failure == Never  {
     UILabel().apply {
         observableText.map { $0 }.sink($0.cb.text).store(in: $0.cb.asBag)

@@ -39,7 +39,7 @@ private func example() -> AttributableString {
 typealias Attributed = ArrayBuilder<AttributableString>
 
 
-func Attr(@ArrayBuilder<AttributableString> strings: () -> [AttributableString]) -> NSMutableAttributedString {
+public func Attr(@ArrayBuilder<AttributableString> strings: () -> [AttributableString]) -> NSMutableAttributedString {
 	return strings().attributedString
 }
 

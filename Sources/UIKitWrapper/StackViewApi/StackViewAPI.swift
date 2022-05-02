@@ -14,6 +14,7 @@ import UIKit
 //import RxKeyboard
 import VDKit
 import SwiftUI
+import CombineOperators
 
 public protocol StackItem {
     var getView: UIView { get }
@@ -645,14 +646,14 @@ public struct StackBuilder2 {
  }
 
 public extension ViewBuilder {
-	static public func buildExpression(_ expression: UIView) -> some View {
-		return expression.swiftUI
-	}
+//	static public func buildExpression(_ expression: UIView) -> some View {
+//		return expression.swiftUI
+//	}
 	
-	static public func buildExpression<V: View>(_ expression: V) -> V {
-		return expression
-	}
-	
+//	static public func buildExpression<V: View>(_ expression: V) -> V {
+//		return expression
+//	}
+//	
 	static public func buildExpression(_ expression: Int) -> some View {
 		let height = expression
 		return Spacer(minLength: CGFloat(height ?? 0))
@@ -1211,10 +1212,86 @@ public extension NSAttributedString {
     }
 }
 
+public extension UIView {
+//	public func button(action: @escaping ()->()) -> UIButton {
+//				UIButton().apply {
+////            $0.titleLabel?.font = self.
+//						let handler = SelectorHandler<UIButton>(referenceHolder: $0) { _ in
+//								action()
+//						}
+//						$0.addTarget(handler, action: #selector(handler.handle(sender:)), for: .touchUpInside)
+//						$0.setAttributedTitle(self, for: .normal)
+////            $0.rx.tap ==> action => $0.rx.asDisposeBag
+//				}
+//
+//		}
+	func button(backgroundPushed: UIColor? = nil , action: @escaping () -> Void) -> Self {
+		var backgroundPushed = backgroundPushed
+		var backgroundActive: UIColor? = nil
+		
+		let container = self
+		let blackTop = UIView()[color: .black.withAlphaComponent(0.1)]
+		let tap = container.cb.longPressGesture() { longpress, _  in
+			longpress.minimumPressDuration = 0.0
+		}
+		
+		self.addSubviews(blackTop.pin())
+		
+		tap.when(.began).sink { _ in
+//			container.backgroundColor = backgroundPushed
+			blackTop.isShown = true
+			container.showPushAnimation { }
+		}.store(in: bag(container))
+		
+		tap.when(.ended).sink { _ in
+			action()
+			blackTop.isShown = true
+
+			UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+			container.showPullAnimation { }
+//			container.backgroundColor = backgroundColor
+		}.store(in: bag(container))
+		
+//		DispatchQueue.main.async {
+//			if backgroundPushed == nil {
+//				backgroundPushed = UIColor.init(red: <#T##CGFloat#>, green: <#T##CGFloat#>, blue: <#T##CGFloat#>, alpha: <#T##CGFloat#>)
+//				self.backgroundColor.red
+//			}
+//		}
+		return self
+	}
+
+}
+
 public extension UIImage {
     public func imageView(color: UIColor? = nil, width: CGFloat? = nil, height: CGFloat? = nil, rad: CGFloat? = nil, contentMode: UIView.ContentMode? = nil) -> UIImageView {
         UIImageView()[color: color, width: width, height: height, rad: rad].chain.contentMode[contentMode ?? .scaleAspectFit].image[self]
     }
+}
+
+public extension UIView {
+	func showPushAnimation(_ completionBlock: @escaping () -> Void) {
+		UIView.animate(withDuration: 0.1,
+									 delay: 0,
+									 options: .curveLinear,
+									 animations: { [weak self] in
+			self?.transform = CGAffineTransform.init(scaleX: 0.95, y: 0.95)
+		}) {  (done) in
+			
+		}
+	}
+	
+	func showPullAnimation(_ completionBlock: @escaping () -> Void) {
+		
+		UIView.animate(withDuration: 0.1,
+									 delay: 0,
+									 options: .curveLinear,
+									 animations: { [weak self] in
+			self?.transform = CGAffineTransform.init(scaleX: 1, y: 1)
+		}) { [weak self] (_) in
+		}
+	}
+	
 }
 
 //extension UIImageView {

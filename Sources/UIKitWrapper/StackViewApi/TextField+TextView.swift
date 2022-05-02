@@ -21,18 +21,19 @@ public struct FieldState {
 }
 public let fieldAutoscrollTag = 23421198
 
+
+
 public func textField(placeholder: String = "",
 							 subject: CurrentValueSubject<FieldState,
 							 Never>,
 							 listener: MaskedTextInputListener? = nil,
 							 bgColor: UIColor = .gray.withAlphaComponent(0.5),
+							textColor: UIColor = .black,
 							 autoScrollSuperViewTag: Int? = fieldContainerTag
 ) -> UITextField {
 	UITextField().apply { field in
 		field.placeholder = placeholder
-		
-		
-		
+		field.textColor = textColor
 		
 		func show(error: Error) {
 			
@@ -83,7 +84,7 @@ public func textView(placeholder: String = "",
 							subject: CurrentValueSubject<FieldState, Never>,
 							listener: MaskedTextInputListener? = nil,
 							autoScrollSuperViewTag: Int? = fieldContainerTag,
-										 placeholderTextColor: UIColor = .gray,
+							placeholderTextColor: UIColor = .gray,
 							placeholderFont: UIFont = .systemFont(ofSize: 16),
 							bgColor: UIColor = .gray.withAlphaComponent(0.3)
 							//, regex: String? = nil
@@ -103,7 +104,7 @@ public func textView(placeholder: String = "",
 		
 		
 		
-		field.tintColor = .rgb(42, 226, 120)
+//		field.tintColor = .blue//.rgb(42, 226, 120)
 		field.backgroundColor = .clear
 		
 		//        DispatchQueue.main.async {
