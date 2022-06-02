@@ -11,10 +11,10 @@ import CombineOperators
 import Combine
 
 public extension Equatable {
-	mutating func apply(_ block: (inout Self) -> Void ) -> Self {
-		block(&self)
-		return self
-	}
+//	mutating func apply(_ block: (inout Self) -> Void ) -> Self {
+//		block(&self)
+//		return self
+//	}
 	func apply(_ block: (Self) -> Void ) -> Self {
 				 block(self)
 				 return self
