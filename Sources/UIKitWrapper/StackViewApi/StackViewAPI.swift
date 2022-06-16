@@ -375,9 +375,11 @@ public extension UIScreen {
 
  extension String: StackItem {
 
-	public var getView: UIView {
-        UILabel().chain.text[self]
-    }
+	 public var getView: UIView {
+		 UILabel().apply {
+			 $0.text = self
+		 }
+	 }
 
 }
 
@@ -508,8 +510,11 @@ public func |(_ lhs: HorizontalChainer, _ rhs: StackItem) -> HorizontalChainer {
 
  extension UIImage: StackItem {
 	public var getView: UIView {
-        UIImageView().chain.contentMode[.scaleAspectFit].image[self]//.apply()
-    }
+		UIImageView().apply {
+			$0.contentMode = .scaleAspectFit
+			$0.image = self
+		}
+	}
 	public var height: CGFloat? { nil }
 	public var width: CGFloat? { nil }
 }
@@ -1264,8 +1269,11 @@ public extension UIView {
 }
 
 public extension UIImage {
-    public func imageView(color: UIColor? = nil, width: CGFloat? = nil, height: CGFloat? = nil, rad: CGFloat? = nil, contentMode: UIView.ContentMode? = nil) -> UIImageView {
-        UIImageView()[color: color, width: width, height: height, rad: rad].chain.contentMode[contentMode ?? .scaleAspectFit].image[self]
+		func imageView(color: UIColor? = nil, width: CGFloat? = nil, height: CGFloat? = nil, rad: CGFloat? = nil, contentMode: UIView.ContentMode? = nil) -> UIImageView {
+			UIImageView()[color: color, width: width, height: height, rad: rad].apply {
+				$0.contentMode = contentMode ?? .scaleAspectFit
+				$0.image = self
+			}
     }
 }
 

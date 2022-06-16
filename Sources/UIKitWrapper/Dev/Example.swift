@@ -26,7 +26,7 @@ class ExampleVC: VC<()> {
             },
             
             __
-				).chain.alignment[.center]
+				)
         
     }
     
