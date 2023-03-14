@@ -651,14 +651,14 @@ public struct StackBuilder2 {
  }
 
 public extension ViewBuilder {
-//	static public func buildExpression(_ expression: UIView) -> some View {
-//		return expression.swiftUI
-//	}
+	static public func buildExpression(_ expression: UIView) -> some View {
+		return expression.swiftUI
+	}
 	
-//	static public func buildExpression<V: View>(_ expression: V) -> V {
-//		return expression
-//	}
-//	
+	static public func buildExpression<V: View>(_ expression: V) -> V {
+		return expression
+	}
+	
 	static public func buildExpression(_ expression: Int) -> some View {
 		let height = expression
 		return Spacer(minLength: CGFloat(height ?? 0))
