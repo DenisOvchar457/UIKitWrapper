@@ -103,13 +103,13 @@ public extension UIViewController {
         }
     }
 
-    func dismiss(completion: @escaping(() -> Void)) {
+    func dismissVC(completion: @escaping(() -> Void)) {
         self.dismiss(animated: true) {
             completion()
         }
     }
 
-    func dismiss() {
+    func dismissVC() {
         self.dismiss(animated: true)
     }
 }
