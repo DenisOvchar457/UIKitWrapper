@@ -200,10 +200,10 @@ public extension UIView {
 }
 
 public extension UIStackView {
-    public func setV(_ items: StackItem...) {
+    func setV(_ items: StackItem...) {
         setV(items: items)
     }
-    public func setV(items: [StackItem]) {
+    func setV(items: [StackItem]) {
         axis = .vertical
         subviews.forEach {
             self.removeArrangedSubview($0)
@@ -235,10 +235,10 @@ public extension UIStackView {
         }
     }
     
-    public func setH(_ items: StackItem...) {
+    func setH(_ items: StackItem...) {
         setH(items: items)
     }
-    public func setH(items: [StackItem]) {
+    func setH(items: [StackItem]) {
         axis = .horizontal
         subviews.forEach {
             self.removeArrangedSubview($0)
@@ -292,7 +292,7 @@ public extension Array where Element: StackItem {
 
 
 public extension Sequence {
-    public func vStack(selection: ((Element) -> ())? = nil, separator: @escaping @autoclosure () -> UIView? = nil , row: @escaping (Element) -> UIView)      -> UIStackView
+    func vStack(selection: ((Element) -> ())? = nil, separator: @escaping @autoclosure () -> UIView? = nil , row: @escaping (Element) -> UIView)      -> UIStackView
     {
         let sep = separator()
         let stack = UIStackView()
@@ -304,7 +304,7 @@ public extension Sequence {
         }
         return stack
     }
-    public func hStack(selection: ((Element) -> ())? = nil, separator: @escaping @autoclosure () -> UIView? = nil , row: @escaping (Element) -> UIView)      -> UIStackView
+    func hStack(selection: ((Element) -> ())? = nil, separator: @escaping @autoclosure () -> UIView? = nil , row: @escaping (Element) -> UIView)      -> UIStackView
     {
         let sep = separator()
         let stack = UIStackView()
@@ -399,7 +399,7 @@ public protocol ViewExtension {}
 //TODO: в этом порядке не закрашивается стэквью например )[color: .backgroundBlue].chain.alignment[.center]
 
 public extension ViewExtension where Self: UIView {
-    subscript(color color: UIColor? = nil, width width: CGFloat? = nil, height height: CGFloat? = nil, rad radius: CGFloat? = nil, border border: (w: CGFloat, color: UIColor)? = nil) -> Self {
+    @discardableResult subscript(color color: UIColor? = nil, width width: CGFloat? = nil, height height: CGFloat? = nil, rad radius: CGFloat? = nil, border border: (w: CGFloat, color: UIColor)? = nil) -> Self {
 //        if let stack = self as? UIStackView {
 //            return stack[color: color, width: width, height: height, rad: radius, border: border] as! Self
 //        }
@@ -438,7 +438,7 @@ public extension ViewExtension where Self: UIView {
 }
 
 public extension UIStackView {
-    subscript(color color: UIColor? = nil, width width: CGFloat? = nil, height height: CGFloat? = nil, rad radius: CGFloat? = nil, border border: (w: CGFloat, color: UIColor)? = nil) -> UIView {
+    @discardableResult subscript(color color: UIColor? = nil, width width: CGFloat? = nil, height height: CGFloat? = nil, rad radius: CGFloat? = nil, border border: (w: CGFloat, color: UIColor)? = nil) -> UIView {
         height.map {
             translatesAutoresizingMaskIntoConstraints = false
             heightAnchor.constraint(equalToConstant: $0).isActive = true
@@ -497,6 +497,14 @@ public extension UIView {
             top.map { topAnchor.constraint(equalTo: superview.topAnchor, constant: $0).isActive = true }
             bottom.map { bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -$0).isActive = true }
         }
+    }
+}
+
+public extension UIView {
+    
+    @discardableResult public func addingSubviews(_ views: UIView...) -> Self {
+        views.forEach(addSubview)
+        return self
     }
 }
 

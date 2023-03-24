@@ -48,14 +48,17 @@ public protocol AttributableString {
 	var attributedString: NSMutableAttributedString { get }
 }
 
-extension NSMutableAttributedString: AttributableString {
-	
-	public var attributedString: NSMutableAttributedString {
-		self
-	}
-	
-	
+extension NSAttributedString: AttributableString {
+    public var attributedString: NSMutableAttributedString {
+        if let mutable = self as? NSMutableAttributedString {
+            return mutable
+        } else {
+            return .init(attributedString: self)
+        }
+    }
 }
+
+
 extension String: AttributableString {
 	public var attributedString: NSMutableAttributedString {
 		NSMutableAttributedString(string: self)
@@ -83,9 +86,7 @@ public extension AttributableString {
 		attributedString.attributed(.font(font))
 	}
 	
-	//    func kern(_ font: UIFont) -> NSAttributedString {
-	//        return NSAttribute([NSAttributedString.Key.font : font])
-	//    }
+	
 	
 	func textColor(_ color: UIColor) -> NSMutableAttributedString {
 		attributedString.attributed(.textColor(color))
@@ -99,12 +100,15 @@ public extension AttributableString {
 		attributedString.attributed(.paragraphStyle(style))
 	}
 	
+    func kern(_ kern: CGFloat) -> NSMutableAttributedString {
+        attributedString.attributed(.kern(kern))
+    }
 }
 
 public class NSAttribute {
 	let attributes: [NSAttributedString.Key: Any]
 	
-	init(_ dict: [NSAttributedString.Key: Any]) {
+	public init(_ dict: [NSAttributedString.Key: Any]) {
 		self.attributes = dict
 	}
 	
@@ -123,9 +127,9 @@ public class NSAttribute {
 		return NSAttribute([NSAttributedString.Key.font : font])
 	}
 	
-	//    static func kern(_ font: UIFont) -> NSAttribute {
-	//        return NSAttribute([NSAttributedString.Key.font : font])
-	//    }
+    public static func kern(_ kern: CGFloat) -> NSAttribute {
+        return NSAttribute([NSAttributedString.Key.kern : kern])
+    }
 	
 	public static func textColor(_ color: UIColor) -> NSAttribute {
 		return NSAttribute([NSAttributedString.Key.foregroundColor : color])
@@ -220,3 +224,4 @@ public extension NSMutableParagraphStyle {
 		self.alignment = alignment
 	}
 }
+

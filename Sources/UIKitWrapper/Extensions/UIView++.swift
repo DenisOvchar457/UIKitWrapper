@@ -103,6 +103,10 @@ public extension UIView {
             alpha = newValue ? 1.0 : 0.0
         }
     }
+    var isAlphaShown: Bool {
+        get { alpha != 0 }
+        set { alpha = newValue ? 1 : 0 }
+    }
 }
 
 public extension UIView {
