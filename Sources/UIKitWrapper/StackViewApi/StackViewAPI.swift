@@ -399,7 +399,7 @@ public protocol ViewExtension {}
 //TODO: в этом порядке не закрашивается стэквью например )[color: .backgroundBlue].chain.alignment[.center]
 
 public extension ViewExtension where Self: UIView {
-    @discardableResult subscript(color color: UIColor? = nil, width width: CGFloat? = nil, height height: CGFloat? = nil, rad radius: CGFloat? = nil, border border: (w: CGFloat, color: UIColor)? = nil) -> Self {
+    subscript(color color: UIColor? = nil, width width: CGFloat? = nil, height height: CGFloat? = nil, rad radius: CGFloat? = nil, border border: (w: CGFloat, color: UIColor)? = nil) -> Self {
 //        if let stack = self as? UIStackView {
 //            return stack[color: color, width: width, height: height, rad: radius, border: border] as! Self
 //        }
@@ -438,7 +438,7 @@ public extension ViewExtension where Self: UIView {
 }
 
 public extension UIStackView {
-    @discardableResult subscript(color color: UIColor? = nil, width width: CGFloat? = nil, height height: CGFloat? = nil, rad radius: CGFloat? = nil, border border: (w: CGFloat, color: UIColor)? = nil) -> UIView {
+     subscript(color color: UIColor? = nil, width width: CGFloat? = nil, height height: CGFloat? = nil, rad radius: CGFloat? = nil, border border: (w: CGFloat, color: UIColor)? = nil) -> UIView {
         height.map {
             translatesAutoresizingMaskIntoConstraints = false
             heightAnchor.constraint(equalToConstant: $0).isActive = true

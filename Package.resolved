@@ -42,8 +42,8 @@
         "repositoryURL": "https://github.com/kean/Nuke",
         "state": {
           "branch": null,
-          "revision": "78fa963b8491fc520791d8c2a509f1b8593d8aae",
-          "version": "10.7.1"
+          "revision": "a002b7fd786f2df2ed4333fe73a9727499fd9d97",
+          "version": "10.11.2"
         }
       },
       {
@@ -51,8 +51,8 @@
         "repositoryURL": "https://github.com/dankinsoid/SimpleCoders.git",
         "state": {
           "branch": null,
-          "revision": "851020895e17b77180234a465c2d8b8050f11ca0",
-          "version": "1.2.0"
+          "revision": "1527a7ab9a00a7a8a5a031c3102efc9cfccb49d4",
+          "version": "1.4.0"
         }
       },
       {
@@ -60,8 +60,8 @@
         "repositoryURL": "https://github.com/dankinsoid/VDCodable.git",
         "state": {
           "branch": null,
-          "revision": "9fb2c81036253593b5864557325e014fa2177d62",
-          "version": "2.10.0"
+          "revision": "9cafa42f64f8f28b7d1b2d2fe590fab96dd4356c",
+          "version": "2.11.0"
         }
       },
       {
@@ -69,8 +69,8 @@
         "repositoryURL": "https://github.com/dankinsoid/VDKit.git",
         "state": {
           "branch": null,
-          "revision": "a33938cfed7addc3d8944be0cfe4b0c3980bdb42",
-          "version": "1.188.0"
+          "revision": "479b079ef914ce3b01bb1f8a40891ac6e0b09982",
+          "version": "1.197.0"
         }
       }
     ]
