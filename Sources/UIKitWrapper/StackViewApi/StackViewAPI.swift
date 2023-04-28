@@ -663,9 +663,9 @@ public extension ViewBuilder {
 		return expression.swiftUI
 	}
 	
-	static public func buildExpression<V: View>(_ expression: V) -> V {
-		return expression
-	}
+//	static public func buildExpression<V: View>(_ expression: V) -> V {
+//		return expression
+//	}
 	
 	static public func buildExpression(_ expression: Int) -> some View {
 		let height = expression
