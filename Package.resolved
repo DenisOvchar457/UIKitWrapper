@@ -15,7 +15,7 @@
         "repositoryURL": "https://github.com/HyperfocusDisordered/CombineOperators.git",
         "state": {
           "branch": null,
-          "revision": "c22bc318bfb1a7a186e4de69429389b4ae55d048",
+          "revision": "681f0667dd8d0f7b1caa63a4159445fa82eb68e8",
           "version": null
         }
       },
@@ -66,11 +66,11 @@
       },
       {
         "package": "VDKit",
-        "repositoryURL": "https://github.com/dankinsoid/VDKit.git",
+        "repositoryURL": "https://github.com/HyperfocusDisordered/VDKit.git",
         "state": {
           "branch": null,
-          "revision": "479b079ef914ce3b01bb1f8a40891ac6e0b09982",
-          "version": "1.197.0"
+          "revision": "f3b617a3d359b440c0f45d06f51162c0313f256c",
+          "version": null
         }
       }
     ]

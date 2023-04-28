@@ -15,7 +15,7 @@ let package = Package(
             targets: ["UIKitWrapper"]),
     ],
     dependencies: [
-			.package(url: "https://github.com/HyperfocusDisordered/CombineOperators.git", revision: "c22bc318bfb1a7a186e4de69429389b4ae55d048"),
+			.package(url: "https://github.com/HyperfocusDisordered/CombineOperators.git", revision: "681f0667dd8d0f7b1caa63a4159445fa82eb68e8"),
 			.package(name: "Nuke", url: "https://github.com/kean/Nuke", from: "10.7.1"),
 			.package(name: "InputMask", url: "https://github.com/RedMadRobot/input-mask-ios", from: "6.0.0"),
 			.package(name: "Carbon", url: "https://github.com/ra1028/Carbon", revision: "56e5f29fc42cad4b0d27b97dccd4065297267ac5"),
