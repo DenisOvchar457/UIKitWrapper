@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/HyperfocusDisordered/CombineOperators.git",
         "state": {
           "branch": null,
-          "revision": "cb9eace3a76faf21c47fe285a5046c061244848a",
-          "version": "2.0.1"
+          "revision": "b011dca94340aef6c6322f79fbd2d59bfc528383",
+          "version": "2.0.4"
         }
       },
       {
@@ -33,8 +33,8 @@
         "repositoryURL": "https://github.com/HyperfocusDisordered/FoundationExtensions.git",
         "state": {
           "branch": null,
-          "revision": "6462bf44d5c7f2d2006b91e639b5c98985f04b47",
-          "version": "2.0.1"
+          "revision": "c107e8fd6b58fc6eb1bdaa84af892651bb653580",
+          "version": "2.0.2"
         }
       },
       {
