@@ -17,7 +17,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/HyperfocusDisordered/FoundationExtensions.git", .exact("2.0.2")),
-        .package(url: "https://github.com/HyperfocusDisordered/CombineOperators.git", .exact("2.0.4")),
+        .package(url: "https://github.com/HyperfocusDisordered/CombineOperators.git", .exact("2.0.5")),
 //			.package(name: "Nuke", url: "https://github.com/kean/Nuke", from: "10.7.1"),
         .package(name: "InputMask", url: "https://github.com/RedMadRobot/input-mask-ios", .exact("6.1.0")),
 			.package(name: "Carbon", url: "https://github.com/ra1028/Carbon", revision: "56e5f29fc42cad4b0d27b97dccd4065297267ac5"),
